@@ -1,0 +1,46 @@
+# Grid-based configuration - Variation 2: High Demand
+# 6 agents, 12 goals distributed in corridors
+
+agents:
+  PDM4AR_1: { state: { x: -10, y: 10, psi: 0 }, color: 'red' }
+  PDM4AR_2: { state: { x: 0, y: 10, psi: 0 }, color: 'green' }
+  PDM4AR_3: { state: { x: 10, y: 10, psi: 0 }, color: 'blue' }
+  PDM4AR_4: { state: { x: -10, y: -10, psi: 0 }, color: 'cyan' }
+  PDM4AR_5: { state: { x: 0, y: -10, psi: 0 }, color: 'magenta' }
+  PDM4AR_6: { state: { x: 10, y: -10, psi: 0 }, color: 'saddlebrown' }
+
+shared_goals:
+  # Top Row
+  - { id: 'goal_1', center: [-10, 8], radius: 0.3 }
+  - { id: 'goal_2', center: [-2, 8], radius: 0.3 }
+  - { id: 'goal_3', center: [4, 8], radius: 0.3 }
+  - { id: 'goal_4', center: [10, 8], radius: 0.3 }
+  # Middle Row (y = -2)
+  - { id: 'goal_5', center: [-9, -2], radius: 0.3 }
+  - { id: 'goal_6', center: [-2, -2], radius: 0.3 }
+  - { id: 'goal_7', center: [4, -2], radius: 0.3 }
+  - { id: 'goal_8', center: [10, -2], radius: 0.3 }
+  # Bottom Row (y = -9)
+  - { id: 'goal_9', center: [-9, -9], radius: 0.3 }
+  - { id: 'goal_10', center: [-5, -9], radius: 0.3 } # Between obstacles
+  - { id: 'goal_11', center: [1, -9], radius: 0.3 }
+  - { id: 'goal_12', center: [7, -9], radius: 0.3 }
+
+collection_points:
+  - { id: 'collection_1', center: [-10, 4], radius: 1.0 }
+  - { id: 'collection_2', center: [-2, -5], radius: 1.0 } # Between lower squares
+  - { id: 'collection_3', center: [10, -6], radius: 1.0 }
+
+static_obstacles:
+  - [ [ -7, -7 ], [ -7, -3 ], [ -3, -3 ], [ -3, -7 ], [ -7, -7 ] ]
+  - [ [ -1, -7 ], [ -1, -3 ], [ 3, -3 ], [ 3, -7 ], [ -1, -7 ] ]
+  - [ [ 5,  -7 ], [ 5, -3 ], [ 9, -3 ], [ 9, -7 ], [ 5, -7 ] ]
+  - [ [ -7, -1 ], [ -7, 3 ], [ -3, 3 ], [ -3, -1 ], [ -7, -1 ] ]
+  - [ [ -1, -1 ], [ -1, 3 ], [ 3, 3 ], [ 3, -1 ], [ -1, -1 ] ]
+  - [ [ 5, -1 ], [ 5, 3 ], [ 9, 3 ], [ 9, -1 ], [ 5, -1 ] ]
+  - [ [ -6, 5 ], [ -5, 6 ], [ -4, 6 ], [ -5, 4 ], [ -6, 5 ] ]
+  - [ [ 0, 5 ], [ 1, 7 ], [ 2, 6 ], [ 1, 4 ], [ 0, 5 ] ]
+  - [ [ 6, 5 ], [ 7, 7 ], [ 8, 6 ], [ 7, 4 ], [ 6, 5 ] ]
+
+boundary: [ [ -11, -11 ], [ -11, 11 ], [ 11, 11 ], [ 11, -11 ], [ -11, -11 ] ]
+seed: 102

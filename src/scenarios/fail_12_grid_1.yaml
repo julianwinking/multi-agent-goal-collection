@@ -1,0 +1,97 @@
+# Grid-based configuration with goals and collection points at grid intersections
+# Uses the same obstacle layout as config_2 (3x2 grid of 4x4 squares + 3 diamonds)
+# Grid spacing: 6 units between obstacle centers
+# Goals placed in corridors between obstacles
+# Collection points at accessible grid intersections
+
+agents:
+  PDM4AR_1:
+    state:
+      x: -9
+      y: 9
+      psi: 1
+    color: 'red'
+  PDM4AR_2:
+    state:
+      x: 9
+      y: 9
+      psi: 1
+    color: 'green'
+  PDM4AR_3:
+    state:
+      x: -9
+      y: -9
+      psi: 1
+    color: 'blue'
+  PDM4AR_4:
+    state:
+      x: 9
+      y: -9
+      psi: 1
+    color: 'saddlebrown'
+
+# Goals placed at grid intersections in the corridors (6-unit spacing)
+# The corridors run at x = -9, -5, 1, 7, 9 (vertical) and y = -9, -5, 5, 9 (horizontal)
+shared_goals:
+  # Row at y = 9 (top edge)
+  - id: 'goal_1'
+    center: [ -5, 9 ]
+    radius: 0.3
+  - id: 'goal_2'
+    center: [ 1, 9 ]
+    radius: 0.3
+    
+  # Row at y = 5 (above main obstacle grid, between diamonds)
+  - id: 'goal_3'
+    center: [ -9, 5 ]
+    radius: 0.3
+  - id: 'goal_4'
+    center: [ 1, -2 ]
+    radius: 0.3
+    
+  # Left/right edges at y = 1 (vertical corridor)
+  - id: 'goal_5'
+    center: [ -9, 1 ]
+    radius: 0.3
+  - id: 'goal_6'
+    center: [ 4, 1 ]
+    radius: 0.3
+
+  # Left/right edges at y = -5 (vertical corridor)
+  - id: 'goal_7'
+    center: [ -9, -5 ]
+    radius: 0.3
+  - id: 'goal_8'
+    center: [ 4, -5 ]
+    radius: 0.3
+
+# Collection points at grid-aligned positions (6-unit spacing from goals)
+collection_points:
+  - id: 'collection_1'
+    center: [ -5, -9 ]
+    radius: 1.0
+  
+  - id: 'collection_2'
+    center: [ 7, -9 ]
+    radius: 1.0
+
+# Same static obstacles as config_2
+static_obstacles:
+  # Bottom row of squares (y = -7 to -3, centers at y = -5)
+  - [ [ -7, -7 ], [ -7, -3 ], [ -3, -3 ], [ -3, -7 ], [ -7, -7 ] ]
+  - [ [ -1, -7 ], [ -1, -3 ], [ 3, -3 ], [ 3, -7 ], [ -1, -7 ] ]
+  - [ [ 5,  -7 ], [ 5, -3 ], [ 9, -3 ], [ 9, -7 ], [ 5, -7 ] ]
+  
+  # Top row of squares (y = -1 to 3, centers at y = 1)
+  - [ [ -7, -1 ], [ -7, 3 ], [ -3, 3 ], [ -3, -1 ], [ -7, -1 ] ]
+  - [ [ -1, -1 ], [ -1, 3 ], [ 3, 3 ], [ 3, -1 ], [ -1, -1 ] ]
+  - [ [ 5, -1 ], [ 5, 3 ], [ 9, 3 ], [ 9, -1 ], [ 5, -1 ] ]
+  
+  # Diamond obstacles (upper area, roughly centered at y = 5-6)
+  - [ [ -6, 5 ], [ -5, 6 ], [ -4, 6 ], [ -5, 4 ], [ -6, 5 ] ]
+  - [ [ 0, 5 ], [ 1, 7 ], [ 2, 6 ], [ 1, 4 ], [ 0, 5 ] ]
+  - [ [ 6, 5 ], [ 7, 7 ], [ 8, 6 ], [ 7, 4 ], [ 6, 5 ] ]
+
+boundary: [ [ -11, -11 ], [ -11, 11 ], [ 11, 11 ], [ 11, -11 ], [ -11, -11 ] ]
+
+seed: 100

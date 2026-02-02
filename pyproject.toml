@@ -1,0 +1,75 @@
+[build-system]
+requires = ["poetry-core>=1.2.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "multi-agent-goal-collection"
+version = "1.0.0"
+authors = []
+
+description = "Multi-Agent Goal Collection Planner - A multi-robot coordination system for efficient goal collection tasks"
+readme = "README.md"
+packages = [
+    { include = "goal_collect", from = "src" },
+    { include = "evaluation", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+
+# general 
+numpy = "<2.0.0"
+networkx = "3.3"
+osmnx = "1.9.4"
+matplotlib = "3.8.2"
+frozendict = "2.4.4"
+pyyaml = "6.0.1"
+shapely = "2.0.5"
+triangle = { git = "https://github.com/ClearCalcs/triangle.git", branch = "master" }
+scikit-learn = "1.5.1"
+
+# zuper
+zuper-commons-z7 = "7.2"
+PyGeometry-z7 = "7.2"
+reprep-z7 = "7.2"
+pycontracts3 = "7.2"
+xtermcolor = "*"
+pytz = "*"
+aiofiles = "*"
+future = "*"
+webcolors = "*"
+typing_extensions = "*"
+decorator = "*"
+
+# dg
+dg-commons = { git = "https://github.com/idsc-frazzoli/dg-commons.git", branch = "ex14_zhengyu_new" }
+dg-commonroad-drivability-checker = "2024.1"
+
+# mpc
+do-mpc = "4.6.5"
+
+# optimization
+scipy = "1.14.0"
+pulp = ">=2.7.0"
+qdldl = "0.1.7.post5"                                     # later versions do not work for M chips
+osqp = "0.6.3"
+cvxpy = { version = "1.5.3", extras = ["CVXOPT", "CBC"] }
+casadi = "3.6.5"
+sympy = "1.13.0"
+cloudpickle = "3.1.2"
+
+# notebooks
+ipython = "8.26.0"
+ipykernel = "6.29.5"
+
+# others
+pre-commit = "3.8.0"
+pydantic = "2.12.4"
+numpydantic = "1.7.0"
+#setuptools = "*"
+#wheel = "*"
+imageio = "^2.37.2"
+
+
+[tool.poetry.scripts]
+pdm4ar-exercise = "pdm4ar:exercise_main"
